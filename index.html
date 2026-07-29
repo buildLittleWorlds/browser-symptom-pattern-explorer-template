@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browser Symptom Pattern Explorer</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">Transformers.js v4 feasibility prototype</p>
+        <h1>Browser Symptom Pattern Explorer</h1>
+        <p><strong>Starter revision: S1-2026-07-29</strong></p>
+        <p class="lede">
+          A bounded research instrument that ranks ten condition labels using a
+          small model running on your device.
+        </p>
+      </header>
+
+      <aside class="boundary">
+        <strong>Not a diagnostic or triage tool.</strong> It cannot determine
+        what condition a person has, rule out emergencies, or recommend care.
+        Use fictional or published test cases, never private patient data.
+      </aside>
+
+      <section class="workbench">
+        <form id="analysis-form">
+          <label for="symptoms">Fictional symptom description</label>
+          <textarea
+            id="symptoms"
+            rows="8"
+            placeholder="Example: fever, dry cough, fatigue, body aches"
+          ></textarea>
+          <div class="actions">
+            <button type="submit">Run local model</button>
+            <button type="button" id="compare" class="secondary" disabled>
+              Test reversed symptom order
+            </button>
+          </div>
+        </form>
+
+        <div class="output">
+          <p class="output-label">Ranked model signals</p>
+          <ol id="results" class="results">
+            <li class="empty">No run yet.</li>
+          </ol>
+          <p class="score-note">
+            Scores show the model's fit to each label. They are not calibrated
+            probabilities, accuracy estimates, or medical confidence.
+          </p>
+        </div>
+      </section>
+
+      <div id="red-flags" class="red-flags" hidden></div>
+
+      <section class="instrument">
+        <div>
+          <span>Runtime</span>
+          <strong id="runtime">Model not loaded</strong>
+        </div>
+        <div>
+          <span>Status</span>
+          <strong id="status">Ready for a fictional test case.</strong>
+        </div>
+        <button type="button" id="download" class="secondary" disabled>
+          Download local run log
+        </button>
+      </section>
+    </main>
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
